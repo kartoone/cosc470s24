@@ -22,7 +22,7 @@ def load_images(directory):
     return np.array(images)
 
 # Specify the directory containing the images
-image_directory = "c:/Users/brtoone/Downloads/frames"
+image_directory = "/Users/briantoone/Downloads/frames2"
 
 # Load images from the directory
 dataset = load_images(image_directory)
@@ -224,7 +224,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=200, n_batc
 			# prepare points in latent space as input for the generator
 			X_gan = generate_latent_points(latent_dim, n_batch)
 			# create inverted labels for the fake samples
-			y_gan = ones((n_batch, 1))
+			y_gan = zeros((n_batch, 1))
 			# update the generator via the discriminator's error
 			g_loss = gan_model.train_on_batch(X_gan, y_gan)
 			# summarize loss on this batch
